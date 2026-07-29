@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nepali Interpreter Application Form</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f1f3f4;
+    padding:40px 15px;
+}
+
+.container{
+    max-width:760px;
+    margin:auto;
+}
+
+.form-card{
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.header{
+    border-top:10px solid #673ab7;
+    padding:30px;
+}
+
+.header h1{
+    font-size:30px;
+    margin-bottom:10px;
+    color:#202124;
+}
+
+.header p{
+    color:#5f6368;
+    line-height:1.6;
+}
+
+.required{
+    color:#d93025;
+    margin-top:15px;
+    display:block;
+}
+
+.section{
+    padding:25px 30px;
+    border-top:1px solid #ececec;
+}
+
+label{
+    display:block;
+    font-weight:600;
+    margin-bottom:10px;
+    color:#202124;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #dadce0;
+    border-radius:5px;
+    font-size:15px;
+    transition:.25s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+    border-color:#673ab7;
+}
+
+textarea{
+    resize:vertical;
+    min-height:120px;
+}
+
+.checkbox{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.checkbox input{
+    width:auto;
+    margin-top:4px;
+}
+
+button{
+    background:#673ab7;
+    color:white;
+    border:none;
+    padding:13px 28px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.25s;
+}
+
+button:hover{
+    background:#5b33a3;
+}
+
+.footer{
+    padding:25px 30px;
+}
+
+.success{
+    display:none;
+    margin-top:25px;
+    background:#e8f5e9;
+    color:#2e7d32;
+    border-left:5px solid #2e7d32;
+    padding:18px;
+    border-radius:6px;
+}
+
+small{
+    color:#666;
+}
+
+input[type=file]{
+    padding:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="form-card">
+
+<div class="header">
+<h1>Nepali Interpreter Vacancy</h1>
+
+<p>
+Thank you for your interest in applying for the Nepali Interpreter position.
+Please complete the application form below with accurate information.
+Only shortlisted applicants will be contacted.
+</p>
+
+<span class="required">* Required</span>
+
+</div>
+
+<form id="applicationForm">
+
+<div class="section">
+<label>Full Name *</label>
+<input type="text" required>
+</div>
+
+<div class="section">
+<label>Email Address *</label>
+<input type="email" required>
+</div>
+
+<div class="section">
+<label>Phone Number *</label>
+<input type="tel" required>
+</div>
+
+<div class="section">
+<label>Current Country *</label>
+<input type="text" required>
+</div>
+
+<div class="section">
+<label>Current City *</label>
+<input type="text" required>
+</div>
+
+<div class="section">
+<label>Years of Interpretation Experience *</label>
+
+<select required>
+<option value="">Choose</option>
+<option>Less than 1 year</option>
+<option>1-2 years</option>
+<option>3-5 years</option>
+<option>5-10 years</option>
+<option>10+ years</option>
+</select>
+
+</div>
+
+<div class="section">
+
+<label>English Proficiency *</label>
+
+<select required>
+<option value="">Select</option>
+<option>Basic</option>
+<option>Intermediate</option>
+<option>Advanced</option>
+<option>Native / Fluent</option>
+</select>
+
+</div>
+
+<div class="section">
+
+<label>Nepali Proficiency *</label>
+
+<select required>
+<option value="">Select</option>
+<option>Basic</option>
+<option>Intermediate</option>
+<option>Advanced</option>
+<option>Native</option>
+</select>
+
+</div>
+
+<div class="section">
+
+<label>Availability *</label>
+
+<select required>
+<option value="">Choose</option>
+<option>Immediately</option>
+<option>Within 1 Week</option>
+<option>Within 2 Weeks</option>
+<option>Within 1 Month</option>
+</select>
+
+</div>
+
+<div class="section">
+
+<label>Upload Your CV / Resume *</label>
+
+<input
+type="file"
+accept=".pdf,.doc,.docx"
+required>
+
+<small>
+Accepted formats: PDF, DOC, DOCX
+</small>
+
+</div>
+
+<div class="section">
+
+<label>Additional Information</label>
+
+<textarea
+placeholder="Tell us anything you would like us to know."></textarea>
+
+</div>
+
+<div class="section">
+
+<div class="checkbox">
+
+<input type="checkbox" required>
+
+<label>
+I confirm that the information provided in this application is accurate and complete.
+</label>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<button type="submit">
+Submit Application
+</button>
+
+<div class="success" id="successMessage">
+
+<strong>Application Submitted Successfully!</strong>
+
+<br><br>
+
+Thank you! Your application has been received.
+
+We will review your information and contact you soon if your profile matches our requirements.
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+const form = document.getElementById("applicationForm");
+const success = document.getElementById("successMessage");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    success.style.display = "block";
+
+    form.reset();
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+});
+</script>
+
+</body>
+</html>
